@@ -1,13 +1,40 @@
 
-const Favorite = ()=>{
+import Card from "./Card";
+import { connect } from "react-redux";
+
+const Favorites = ({myFavorites})=>{
+
 return(
     <>
-    <h1>Favorites</h1>
+    {
+     myFavorites?.map(element => 
+      <div>
+         <Card
+         key={element.id}
+         id={element.id}
+         name={element.name}
+         species={element.species}
+         gender={element.gender}
+         image={element.image}
+         />
 
-    </>
-)
+      </div>
+      )
+
+
+
+
+    }
+      </>
+) 
+}
+
+export const mapStateToProp = (state)=>{
+    return{
+    myFavorites: state.myFavorites
+}
 
 }
 
 
-export default Favorite;
+export default connect (mapStateToProp, null)(Favorites);

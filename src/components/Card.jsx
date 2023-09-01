@@ -23,19 +23,19 @@ export function Card(props) {
 
    useEffect(() => {
       myFavorites.forEach((fav) => {
-         if (fav.id === props.id) {
+         if (fav.id === id) {
             setIsFav(true);
          }
       });
    }, [myFavorites]);
 
    const handleFavorite = () => {
-    if( isFav === true){
+    if(isFav){
       setIsFav(false);
-    }
-    if( isFav === false){
+      removeFav(id);
+    }else{
       setIsFav(true);
-      addFav(props)
+      addFav({id,name,status,species,gender,origin,image})
     }
 
    }
@@ -43,6 +43,8 @@ export function Card(props) {
 
    return (
       <div>
+          {   isFav ? (      <button onClick={handleFavorite}>❤️</button>   ) : 
+          (      <button onClick={handleFavorite}>🤍</button>   )}
          <button onClick={() => onClose(id)}>X</button>
          <Link to = {`/detail/${id}`}>
          <h2>{name}</h2>
@@ -51,8 +53,6 @@ export function Card(props) {
           <h2>Gender: {gender}</h2>
           <img src={image} alt={name} />
 
-          {   isFav ? (      <button onClick={handleFavorite}>❤️</button>   ) : 
-          (      <button onClick={handleFavorite}>🤍</button>   )}
       </div>
    );
 };
