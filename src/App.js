@@ -9,6 +9,7 @@ import About from './views/About'
 import Detail from './views/Detail';
 import Error from './views/Error';
 import Form from './views/Form';
+import Favorite from './components/Favorites'
 import { useEffect } from 'react';
 import {useNavigate} from 'react-router-dom';
 
@@ -67,6 +68,7 @@ const onClose = (id) => {
          <Route path = {'/home'} element = {<Cards onClose={onClose} characters={characters} />}/>
          <Route path = {'/about'} element = {<About/>} />
          <Route path = {`/detail/:id`} element = {<Detail/>}/>
+         <Route path = {'/favorites'} element = {<Favorite/>}/>
          <Route path = "*" element={<Error/>}/>
          </Routes>
          

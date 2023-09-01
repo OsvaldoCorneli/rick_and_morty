@@ -25,6 +25,9 @@ return(
         <NavLink to="/home">
         <button>Home</button>
         </NavLink>
+        <NavLink to='/favorites'>
+         <button>Favorites</button>
+         </NavLink>
         <button onClick={()=>clearAll()}>Clear All</button>
         <button onClick={logout}>LogOut</button>
 

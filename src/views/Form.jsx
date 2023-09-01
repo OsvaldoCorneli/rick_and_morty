@@ -4,6 +4,7 @@ import validation from '../helpers/validation'
 
 export default function Form ({login}){
    const [errors, setErrors] = useState({});
+   const [passwordvisible, setPasswordVisible] = useState(false);
 
 
     const [userData, setUserDate] = useState({
@@ -18,22 +19,33 @@ const handleChange = (event)=>{
 
 }
 
+
+
 const handleSubmit = (event)=>{
     event.preventDefault()
     login(userData);
     
 }    
 
+const passwordview = () =>{
+    if(!passwordvisible){
+        setPasswordVisible(true);
+    }
+    else{
+        setPasswordVisible(false);
+    }
+}
 
 return(
     <div>
     <form onSubmit={handleSubmit}>
-     <p>{errors.email}</p>
+     <p style={{ color: 'red', fontSize: '15px' }}>{errors.email}</p>
      <label>Email: </label>
      <input type="text" name="email" value={userData.email} onChange={handleChange}/>
      <label>Password: </label>
-     <input type="password" name='password' value={userData.password} onChange={handleChange}/>
-     <p>{errors.password}</p>
+     <input type={passwordvisible?"text":'password'} name='password' value={userData.password} onChange={handleChange}/>
+     <button type='button' onClick={passwordview}>👁️</button>
+     <p style={{ color: 'red', fontSize: '15px' }}>{errors.password}</p>
     
      <button>Submit</button>
     </form>
