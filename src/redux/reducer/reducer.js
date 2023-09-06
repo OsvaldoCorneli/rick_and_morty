@@ -1,7 +1,8 @@
-import { ADD_FAV, REMOVE_FAV } from "../actions/actios-types";
+import { ADD_FAV, REMOVE_FAV , FILTER, ORDER} from "../actions/actios-types";
 
 const initialState = {
- myFavorites: []
+ myFavorites: [],
+ allCharacters: []
 
 }
 
@@ -12,8 +13,11 @@ const rootReducer = (state=initialState, action)=>{
     case ADD_FAV:
    return{
    ...state,
-   myFavorites: [...state.myFavorites, payload] 
+   myFavorites:  [...state.allCharacters, payload],
+   allCharacters:  [...state.allCharacters, payload]
+   
 }
+
    case REMOVE_FAV:
     return{
      ...state,
@@ -21,6 +25,20 @@ const rootReducer = (state=initialState, action)=>{
 
     }
 
+   case FILTER:
+      const charactersFiltered = payload !== "" ? state.allCharacters.filter(element => element.gender === payload): state.allCharacters 
+      return{
+         ...state,
+         myFavorites: charactersFiltered
+         
+      }
+
+    case ORDER:
+      const orderCharacter = [...state.allCharacters]
+      return{
+         ...state,
+         myFavorites: payload === "A" ? orderCharacter.sort((a,b)=> a.id - b.id) : orderCharacter.sort((a,b) => b.id - a.id)
+      }
     default:
         return{
             ...state

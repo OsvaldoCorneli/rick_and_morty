@@ -1,4 +1,4 @@
-import { ADD_FAV, REMOVE_FAV } from "./actios-types";
+import { ADD_FAV, REMOVE_FAV , FILTER , ORDER} from "./actios-types";
 
 
 export const addFav = (character) => {
@@ -16,4 +16,19 @@ return{
     payload: id
 }
 
+}
+
+export const filterCards = (gender)=>{
+    return{ 
+        type: FILTER,
+        payload: gender
+    }
+
+}
+
+export const orderCards = (order)=> {
+    return{
+        type: ORDER,
+        payload: order
+    }
 }
