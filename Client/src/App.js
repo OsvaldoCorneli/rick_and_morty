@@ -13,23 +13,20 @@ import { useEffect } from 'react';
 import {useNavigate} from 'react-router-dom';
 import Favorites from './components/Favorites/Favorites';
 
+
+
+
+
+
 function App() {
+   
+
    const location = useLocation();
    const [characters, setCharacters] = useState([]);
-   console.log(characters)
    const navigate = useNavigate();
    localStorage.setItem('access', 'true'); 
     
     const [access, setAccess] = useState(true);
-  
-
-   // function login(userData) {const { email, password } = userData;
-
-   
-   // const URL = 'http://localhost:3001/rickandmorty/login/';
-   // axios(URL + `?email=${email}&password=${password}`)
-   // .then(({ data }) => {      const { access } = 
-   // data;      setAccess(data);      access && navigate('/home');});}
 
   
   async function login(userData) {const { email, password } = userData;
@@ -83,7 +80,7 @@ catch(error){ alert(error)}
          
 const onClose = (id) => {
 
-   const filteredCharacters = characters.filter(character => character.id !== +id);
+   const filteredCharacters = characters.filter((character) => character.id !== +id);
     setCharacters(filteredCharacters);
    
 }
@@ -92,6 +89,7 @@ const onClose = (id) => {
    return (
 
       <div className='App'>
+           
          {
             location.pathname !== '/'
             ?<Nav onSearch = {onSearch} clearAll={clearAll} logout={logout}/>

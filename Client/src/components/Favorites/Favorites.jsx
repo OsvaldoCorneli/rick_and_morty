@@ -26,11 +26,11 @@ const Favorites = ({myFavorites})=>{
 
 return(
     <>
-    <select onChange={handleOrder}>
+    <select className={style.select} onChange={handleOrder}>
       <option value="A">Ascendente</option>
       <option value="D">Descendente</option>
     </select>
-    <select onChange={handleFilter}>
+    <select className={style.select} onChange={handleFilter}>
       <option value="">All</option>
       <option value="Male">Male</option>
       <option value="Female">Female</option>
@@ -38,11 +38,11 @@ return(
       <option value="unknown">unknown</option>
 
     </select>
-    {
-     
-     myFavorites?.map(element => 
-      <div className={style.favorite}>
-         <Card
+    <h1 className={style.tittle}>FAVORITES</h1>
+    
+    <div className={style.ordenar}>
+  {  myFavorites?.map(element => 
+      <Card
          key={element.id}
          id={element.id}
          name={element.name}
@@ -50,15 +50,9 @@ return(
          gender={element.gender}
          image={element.image}
          
-         />
-
-      </div>
-      )
-
-
-
-
-    }
+         />)
+       }
+</div>
       </>
 ) 
 }

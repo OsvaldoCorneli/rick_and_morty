@@ -1,0 +1,13 @@
+.fondo {
+    background-image: url('/public/error.jpg');
+    background-size: 500px; 
+    background-position: center; 
+    background-repeat: repeat;
+    background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    
+  }

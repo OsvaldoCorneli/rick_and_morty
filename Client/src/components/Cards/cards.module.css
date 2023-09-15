@@ -1,7 +1,7 @@
 .ordenar {
     width: 85vw;
-    margin: 0 auto; 
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
-    grid-gap: 20px;
-}
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Aumenta el valor mínimo */
+    grid-gap: 15px;
+  }

@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react"
 import validation from '../helpers/validation'
+import style from './form.module.css';
+
 
 export default function Form ({login}){
    const [errors, setErrors] = useState({});
@@ -37,8 +39,13 @@ const passwordview = () =>{
 }
 
 return(
-    <div>
-    <form onSubmit={handleSubmit}>
+    <div className={style.container}>
+        <div className={style.logo}>
+   <img src='/logo512.png' alt="Logo de tu aplicación"  />
+        </div>
+
+    <br></br>
+    <form onSubmit={handleSubmit} className={style.login}>
      <p style={{ color: 'red', fontSize: '15px' }}>{errors.email}</p>
      <label>Email: </label>
      <input type="text" name="email" value={userData.email} onChange={handleChange}/>

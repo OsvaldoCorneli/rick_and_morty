@@ -1,3 +1,12 @@
 .App {
    text-align: center;
 }
+
+body {
+   background-image: url("../public/wallpaperbetter.jpg"); 
+   background-repeat: repeat;
+   background-size: cover; 
+   
+ }
+ 
+ 

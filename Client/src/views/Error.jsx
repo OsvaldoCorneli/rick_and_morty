@@ -1,12 +1,14 @@
-
+import style from "./error.module.css"
 
 export default function Error(){
+   
+    
+
 
     return(
-   <div>
-       <h1>ERROR 404</h1>
-
-   </div>
+        <div className={style.fondo}>
+        {<h1>ERROR 404</h1>}
+      </div>
 
 
     )
